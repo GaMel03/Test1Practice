@@ -1,0 +1,21 @@
+<h2>Home Page</h2>
+<p>Student: {{ studentName }}</p>
+<p>Course: {{ courseName }}</p>
+<button [disabled]="isLocked">Locked button</button> 
+
+
+@if (isLocked) {
+  <p>This section is locked.</p>
+} @else {
+  <p>This section is open.</p>
+}
+
+
+<h3>My Courses</h3>
+<ul>
+  @for (course of courses; track course.name) {
+    <li>{{ course.name }} - {{ course.credits }} credits</li>
+  } @empty {
+    <li>No courses yet.</li>
+  }
+</ul>
